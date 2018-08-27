@@ -31,6 +31,8 @@ class MicroCore {
 
     tx_memory_pool m_mempool;
     Blockchain core_storage;
+    service_nodes::service_node_list m_service_node_list;
+    loki::deregister_vote_pool m_deregister_vote_pool;
 
     hw::device* m_device;
 
