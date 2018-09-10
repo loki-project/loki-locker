@@ -41,11 +41,15 @@ CurrentBlockchainStatus::monitor_blockchain()
            if (stop_blockchain_monitor_loop)
                break;
 
-           update_current_blockchain_height();
+           update_current_blockchain_height();           
+
            read_mempool();
+
            OMINFO << "Current blockchain height: " << current_height
                   << ", no of mempool txs: " << mempool_txs.size();
+
            clean_search_thread_map();
+
            std::this_thread::sleep_for(
                    std::chrono::seconds(
                     bc_setup.refresh_block_status_every_seconds));
@@ -220,9 +224,10 @@ CurrentBlockchainStatus::get_tx_with_output(
 }
 
 bool
-CurrentBlockchainStatus::get_output_keys(const uint64_t& amount,
-            const vector<uint64_t>& absolute_offsets,
-            vector<cryptonote::output_data_t>& outputs)
+CurrentBlockchainStatus::get_output_keys(
+        const uint64_t& amount,
+        const vector<uint64_t>& absolute_offsets,
+        vector<cryptonote::output_data_t>& outputs)
 {
     try
     {
@@ -678,8 +683,7 @@ CurrentBlockchainStatus::start_tx_search_thread(
     {
         // launch SearchTx thread for the given xmr account
 
-        searching_threads.insert(
-            {acc.address, ThreadRAII2<TxSearch>(std::move(tx_search))});
+        searching_threads.emplace(acc.address, ThreadRAII2<TxSearch>(std::move(tx_search)));
 
         OMINFO << "Search thread created for address: " << acc.address;
     }
@@ -950,13 +954,26 @@ CurrentBlockchainStatus::clean_search_thread_map()
         if (search_thread_exist(st.first)
                 && st.second.get_functor().still_searching() == false)
         {
-            OMERROR << st.first << " still searching: "
-                 << st.second.get_functor().still_searching();
+
+            // before erasing a search thread, check if there was any
+            // exception thrown by it
+            try
+            {
+                auto eptr = st.second.get_functor().get_exception_ptr();
+                if (eptr != nullptr)
+                    std::rethrow_exception(eptr);
+            }
+            catch (std::exception const& e)
+            {
+                OMERROR << "Error in search thread: " << e.what()
+                        << ". It will be cleared.";
+            }
+
+            OMINFO << "Ereasing a search thread";
             searching_threads.erase(st.first);
         }
     }
 }
-
 
 tuple<string, string, string>
 CurrentBlockchainStatus::construct_output_rct_field(

@@ -172,6 +172,7 @@ BlockchainSetup::_init()
 
     get_blockchain_path();
 
+    //addr and viewkey not needed since fees aren't collected on loki
     //parse_addr_and_viewkey();
 }
 

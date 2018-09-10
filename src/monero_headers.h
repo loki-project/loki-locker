@@ -24,7 +24,8 @@
 #include "cryptonote_core/tx_pool.h"
 #include "cryptonote_core/blockchain.h"
 #include "blockchain_db/lmdb/db_lmdb.h"
-
+#include "cryptonote_core/service_node_list.h"
+#include "cryptonote_core/service_node_deregister.h"
 #include "wallet/wallet2.h"
 
 #include "serialization/binary_utils.h"

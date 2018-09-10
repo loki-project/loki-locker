@@ -16,7 +16,7 @@ namespace xmreg
         positional_options_description p;
 
         options_description desc(
-                "loki-locker, Loki Locker backend service");
+                "openmonero, Open Monero backend service");
 
         desc.add_options()
                 ("help,h", value<bool>()->default_value(false)
@@ -33,12 +33,12 @@ namespace xmreg
                  "does not relay txs to other nodes. useful "
                  "when testing construction and submiting txs")
                 ("port,p", value<string>()->default_value("1984"),
-                 "default port for restbed service of Loki Locker")
+                 "default port for restbed service of Open Monero")
                 ("config-file,c", value<string>()
                  ->default_value("./config/config.json"),
                  "Config file path.")
                 ("log-file,l", value<string>()
-                 ->default_value("./loki-locker.log"),
+                 ->default_value("./openmonero.log"),
                  "Name and path to log file. -l \"\" to disable log file.");
 
 

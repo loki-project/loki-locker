@@ -15,7 +15,7 @@ if (NOT LOKI_DIR)
     set(LOKI_DIR ~/loki)
 endif()
 
-option(BUILD_TEST "Build tests for the project" ON)
+option(BUILD_TEST "Build tests for the project" OFF)
 
 message(STATUS LOKI_DIR ": ${LOKI_DIR}")
 
@@ -36,8 +36,6 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "${MONERO_BUILD_DIR}"
 
 include(MyUtils)
 
-#get_filename_component(ABSOLUTE_PATH ${RELATIVE_PATH} ABSOLUTE)
-
 include(CodeCoverage)
 APPEND_COVERAGE_COMPILER_FLAGS()
 set(COVERAGE_EXCLUDES
@@ -45,11 +43,6 @@ set(COVERAGE_EXCLUDES
         'asio/*'
         '${MONERO_SOURCE_DIR}/*'
         '${CMAKE_SOURCE_DIR}/tests/*')
-
-#set(COVERAGE_EXCLUDES
-#                '${CMAKE_SOURCE_DIR}/ext/*'
-#                'asio/*'
-#                '${MONERO_SOURCE_DIR}/*')
 
 find_package(Monero)
 
@@ -131,6 +124,7 @@ set(LIBRARIES
         epee
         checkpoints
         version
+        sodium
         ${Boost_LIBRARIES}
         pthread
         unbound
@@ -155,8 +149,7 @@ if (WIN32)
             wsock32
             ntdll
             ws2_32
-            Iphlpapi
-            )
+            Iphlpapi)
 else()
     set(LIBRARIES ${LIBRARIES} dl)
 endif()
@@ -164,18 +157,16 @@ endif()
 target_link_libraries(${PROJECT_NAME} ${LIBRARIES})
 
 
-#set(COVERAGE_EXCLUDES 'ext/*' '${LOKI_DIR}/*')
-
-include_directories(
+if (${BUILD_TEST})
+    include_directories(
         ${CMAKE_SOURCE_DIR}/ext/googletest/googletest/include
         ${CMAKE_SOURCE_DIR}/ext/googletest/googlemock/include)
-
-#include_directories(${LOKI_DIR}/tests/core_tests)
+endif()
 
 configure_files(${CMAKE_CURRENT_SOURCE_DIR}/sql ${CMAKE_CURRENT_BINARY_DIR}/sql)
 
-
-
-enable_testing()
-add_subdirectory(ext/googletest)
-add_subdirectory(tests)
+if (${BUILD_TEST})
+    enable_testing()
+    add_subdirectory(ext/googletest)
+    add_subdirectory(tests)
+endif()

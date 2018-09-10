@@ -99,7 +99,7 @@ xmreg::MySqlConnector::dbname   = config_json["database"]["dbname"];
 
 
 // once we have all the parameters for the blockchain and our backend
-// we can create and instance of  CurrentBlockchainStatus class.
+// we can create an instance of CurrentBlockchainStatus class.
 // we are going to this through a shared pointer. This way we will
 // have only once instance of this class, which we can easily inject
 // and pass around other class which need to access blockchain data
@@ -113,7 +113,7 @@ auto current_bc_status
 // since CurrentBlockchainStatus class monitors current status
 // of the blockchain (e.g., current height). This is the only class
 // that has direct access to blockchain and talks (using rpc calls)
-// with the loki daemon.
+// with the loki deamon.
 if (!current_bc_status->init_loki_blockchain())
 {
     OMERROR << "Error accessing blockchain.";
@@ -156,7 +156,7 @@ catch(std::exception const& e)
 // thread to ping mysql, thus keeping it alive.
 //
 // "A completely different way to tackle this,
-// if your program doesn't block forever waiting on I/O while idle,
+// if your program doesn’t block forever waiting on I/O while idle,
 // is to periodically call Connection::ping(). [12]
 // This sends the smallest possible amount of data to the database server,
 // which will reset its idle timer and cause it to respond, so ping() returns true.
@@ -193,7 +193,7 @@ MAKE_RESOURCE(get_version);
 // restbed service
 Service service;
 
-// Publish the Loki Locker API created so that front end can use it
+// Publish the Open Loki API created so that front end can use it
 service.publish(login);
 service.publish(get_address_txs);
 service.publish(get_address_info);

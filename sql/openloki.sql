@@ -23,6 +23,9 @@ SET time_zone = "+00:00";
 -- Database: `openloki`
 --
 
+CREATE DATABASE IF NOT EXISTS `openloki` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `openloki`;
+
 -- --------------------------------------------------------
 
 --

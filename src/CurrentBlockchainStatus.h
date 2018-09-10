@@ -221,7 +221,7 @@ public:
 
     /*
      * The frontend requires rct field to work
-     * the field consists of rct_pk, mask, and amount.
+     * the fieled consists of rct_pk, mask, and amount.
      */
     virtual tuple<string, string, string>
     construct_output_rct_field(
