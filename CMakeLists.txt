@@ -15,7 +15,7 @@ if (NOT LOKI_DIR)
     set(LOKI_DIR ~/loki)
 endif()
 
-option(BUILD_TEST "Build tests for the project" OFF)
+option(BUILD_TEST "Build tests for the project" ON)
 
 message(STATUS LOKI_DIR ": ${LOKI_DIR}")
 
