@@ -12,56 +12,56 @@
     resizeSection();
   });
 </script>
+
 <div class="body-section steps-page full-page">
-
-    <!-- Mobile and Tablet -->
-    <div class="header-section-mobile">
-      <div class="mob-logo">
-        <img class="nav-logo"  src="images/loki_logo.svg" style="height:50;"/>
-        <span style="font-size: 40px; color: white;">LOKI LOCKER<br></span>
-                <a class="create-account-btn" href="#!/create-your-account">Create an Account</a>
-                <!--Button below is a login button. Reused the create-account-btn styles -->
-                <a class="create-account-btn" ng-show="!loggedIn()" data-ix="display-login" show-modal="login">LOG IN</a>
-        </div>
-        <div class="home-header">
-          Fully Open Sourced<br/> 
-          Light Loki Wallet
-        </div>
+  <!-- Mobile and Tablet -->
+  <div class="header-section-mobile">
+    <div class="mob-logo">
+      <img class="nav-logo"  src="images/loki_logo.svg" style="height:50;"/>
+      <span style="font-size: 40px; color: white;">LOKI LOCKER<br></span>
+      <a class="create-account-btn" href="#!/create-your-account">Create an Account</a>
+      <!--Button below is a login button. Reused the create-account-btn styles -->
+      <a class="create-account-btn" ng-show="!loggedIn()" data-ix="display-login" show-modal="login">LOG IN</a>
     </div>
+    <div class="home-header">
+      Fully Open Sourced<br/> 
+      Light Loki Wallet
+    </div>
+  </div>
 
-    <!-- Desktop -->
-    <div class="header-section">
-        <div class="w-container home-container">
-          <div id="home-wrapper">
-             <div id="home-l">
-             </div>
-             <div id="home-tr">
-              <div id="loki-logo">
-                <img class="nav-logo"  src="images/loki_logo.svg" style="height:100px;"/>
-                <span style="font-size: 65px; color: white;">LOKI LOCKER</span>
-                <a class="create-account-btn" href="#!/create-your-account">Create an Account</a>
-              </div>
-                <div class="home-header">
-                  Fully Open Sourced<br/> 
-                  Light Loki Wallet
-                </div>
-             </div>
+  <!-- Desktop -->
+  <div class="header-section">
+    <div class="w-container home-container">
+      <div id="home-wrapper">
+        <div id="home-l">
+        </div>
+        <div id="home-tr">
+          <div id="loki-logo">
+            <img class="nav-logo"  src="images/loki_logo.svg" style="height:100px;"/>
+            <span style="font-size: 65px; color: white;">LOKI LOCKER</span>
+            <a class="create-account-btn" href="#!/create-your-account">Create an Account</a>
           </div>
-          <div id="home-wrapper">
-            <div id="home-l">
-              <div id="lottie">
-                <script>
-                  var animation = bodymovin.loadAnimation({
-                  container: document.getElementById('lottie'),
-                  renderer: 'svg',
-                  loop: true,
-                  autoplay: true,
-                  path: './loki.json'
-                  })
-                </script>
-              </div>
-            </div>
+          <div class="home-header">
+            Fully Open Sourced<br/> 
+            Light Loki Wallet
           </div>
         </div>
+      </div>
+      <div id="home-wrapper">
+        <div id="home-l">
+          <div id="lottie">
+            <script>
+              var animation = bodymovin.loadAnimation({
+              container: document.getElementById('lottie'),
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: './loki.json'
+              })
+            </script>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

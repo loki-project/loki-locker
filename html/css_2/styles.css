@@ -3841,17 +3841,13 @@ p {
 #home-wrapper {
   display: flex;
   text-align: center;
-  min-width:60vw;
-}
+  min-width:60vw; }
 
 #home-wrapper span {
   vertical-align: middle;
-  padding-right:20px;
-}
+  padding-right:20px; }
 
-#home-l {
-  flex: 0 0 40%;
-}
+#home-l { flex: 0 0 40%; }
 
 #lottie { 
   margin-top: 0px;
@@ -3859,37 +3855,29 @@ p {
   width:50% !important;
   position:absolute!important;
   top:200px;
-  left:10px;
-}
+  left:10px; }
 
-#home-tr {
-  flex: 1;
-}
+#home-tr { flex: 1; }
 
 #loki-logo{
   height:25vw;
   display:block;
   display: table-cell;
-  vertical-align: middle !important;
-}
+  vertical-align: middle !important; }
 
-#mob-logo{
+#mob-logo {
   height:50vw;
   display:block;
   display: table-cell;
   vertical-align: middle !important;
-  text-align: center!important;
-}
-
+  text-align: center!important; }
 
 .social ul {
-  overflow: auto;
-}
+  overflow: auto; }
 
 .social ul li {
   list-style-type: none;
-  float: left;
-}
+  float: left; }
 
 .social a i {
   background: #f5f5f5;
@@ -3902,38 +3890,30 @@ p {
   margin-right: 10px;
   margin-top: 10px;
   padding: 8px;
-  transition: all 0.2s ease-in-out;
-}
+  transition: all 0.2s ease-in-out; }
 
 .social a i:hover {
   background: #78be20;
-  color: #fff;
-}
+  color: #fff; }
 
-.mob-logo{
-  padding-top:50px;
-
-}
+.mob-logo { padding-top:50px; }
 
 .header-section-mobile {display:none;}
 .header-section {display:display;}
 
-.social-mobile {
-  display:none;
-}
+.social-mobile { display:none; }
 
-.social-mobile {
-  text-align:center;
-}
-.social-desktop {display:display;}
+.social-mobile { text-align:center; }
+
+.social-desktop {display:display; }
 
 @media (max-width : 1000px) {
     .header-section-mobile {display:block;}
     .header-section {display:none;}
     .social-mobile {display:block;}
     .social-desktop {display:none;}
-    .full-page{
+    .full-page {
       min-height:500px!important;
-      padding:20px;}
+      padding:20px; }
 }
 /*# sourceMappingURL=styles.css.map */
