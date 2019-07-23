@@ -2295,8 +2295,8 @@ p {
   margin-right: 80px;
   margin-left: 80px;
   padding: 10px 40px 25px;
-  border-radius: 3px;
-  background-color: white;
+  border-radius: 10px;
+  background-color: #1a1a1a !important;
   color: #444d59; }
 
 .modalhead-div {
@@ -2359,7 +2359,7 @@ p {
   margin-top: 8px;
   margin-bottom: 20px;
   padding: 15px 122px;
-  border-radius: 2px;
+  border-radius: 10px;
   background-color: #008522;
   font-family: Proximanova, sans-serif;
   color: white;
@@ -2410,7 +2410,7 @@ p {
 
 .field-label {
   font-family: Proximanova, sans-serif;
-  color: #00263a;
+  color: #f5f5f5;
   font-size: 15px;
   font-weight: 600; }
   .field-label.review {
@@ -2635,7 +2635,7 @@ p {
 
 .head-modal {
   margin-top: 25px;
-  color: #00263a;
+  color: #f5f5f5;
   text-align: center; }
 
 .send-label {
@@ -3377,7 +3377,8 @@ p {
 
   .modal-box {
     margin-right: 0px;
-    margin-left: 0px; }
+    margin-left: 0px;
+     }
 
   .copyright-text {
     display: inline-block; }
